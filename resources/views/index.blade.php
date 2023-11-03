@@ -23,34 +23,36 @@
                                 </div>
                             </div>
                             <div class="col-md-8">
-                                <div id="carouselExampleFade" class="carousel slide carousel-fade">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <a href=""> <img
-                                                    src="https://cdn.upanh.info/storage/upload/images/BANNER-SHOPNGOCRONG-NET.gif"
-                                                    class="d-block w-100 carousel-image" alt="..."></a>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <a href=""> <img
-                                                    src="https://cdn.upanh.info/storage/upload/images/%E1%BA%A2nh%20v%C3%B2ng%20thum/BAN-NICK-NGOC-RONG-BLUE.gif?t=1660709948"
-                                                    class="d-block w-100 carousel-image" alt="..."></a>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="https://cdn.upanh.info/storage/upload/images/Danh%20M%E1%BB%A5c%20-%20Q.ly%20Nick/DM%20-%20Nick%20Nro%20Blue/image1.png"
-                                                class="d-block w-100 carousel-image" alt="...">
-                                        </div>
-                                    </div>
-                                    <button class="carousel-control-prev" type="button"
-                                        data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </button>
-                                    <button class="carousel-control-next" type="button"
-                                        data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </button>
-                                </div>
+
+                                <swiper-container class="mySwiper" pagination="true" pagination-clickable="true"
+                                   space-between="30" centered-slides="true" autoplay-delay="2500"
+                                    autoplay-disable-on-interaction="false">
+                                    <swiper-slide>
+                                        <a href="">
+                                            <img src="/assets/slide1.gif" class="d-block w-100 carousel-image"
+                                                alt="...">
+                                        </a>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <a href="">
+                                            <img src="/assets/slide2.gif" class="d-block w-100 carousel-image"
+                                                alt="...">
+                                        </a>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <a href="">
+                                            <img src="/assets/slide3.png" class="d-block w-100 carousel-image"
+                                                alt="...">
+                                        </a>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <a href="">
+                                            <img src="/assets/slide4.gif" class="d-block w-100 carousel-image"
+                                                alt="...">
+                                        </a>
+                                    </swiper-slide>
+
+                                </swiper-container>
                             </div>
                         </div>
                     </div>
@@ -95,31 +97,35 @@
                         <h2 class="text-center dichvu pt-3 pb-2" style="color:white; font-weight:bold;">DANH MỤC GAME</h2>
                         <div class="row py-4">
                             {{-- start --}}
-                            {{-- <template v-for="(value , key) in list_danh_muc_game"> --}}
-                                @foreach ($data as $item)
+                            <template v-for="(value , key) in list_danh_muc_game">
                                 <div class="col-md-3 pb-4">
-                                    <div class="card" style="width: 100%; background-color: rgba(18, 17, 15, 0.18); border: 1px solid white;">
-                                        <a href=""><img src="{{ $item->hinh_anh }}" class="card-img-top" alt="..."
-                                            style=" object-fit: cover; height: 149px;"></a>
+                                    <div class="card"
+                                        style="width: 100%; background-color: rgba(18, 17, 15, 0.18); border: 1px solid white;">
+                                        <a href=""><img v-bind:src="value.hinh_anh" class="card-img-top"
+                                                alt="..."
+                                                style=" object-fit: cover;
+                                        height: 149px;"></a>
                                         <div class="card-body">
                                             <h5 class="card-title text-center"
                                                 style="text-transform: uppercase; font-weight: bold ;font-size: 14px ;color:rgb(241,196,15);">
-                                                {{ $item->tieu_de }}</h5>
+                                                @{{ value.tieu_de }}</h5>
                                             <p class="card-text text-center" style=" font-size: 13px ;color:#fff;">
-                                                {{ $item->so_tai_khoan }}</p>
+                                                @{{ value.so_tai_khoan }}</p>
                                             <div class="price">
                                                 <div class="row text-center d-flex justify-content-center">
                                                     <div class="col-md-5">
                                                         <div class=" old-price py-1"
                                                             style="color:rgb(51,255,0); border: 2px solid rgb(51,255,0); border-radius: 5px ; font-weight: bold; font-size: 14px ;">
-                                                            {{ $item->gia_cu }}</div>
+                                                            @{{ value.gia_cu }}</div>
                                                     </div>
                                                     <div class="col-md-5">
                                                         <div class="current-price py-1 "
                                                             style="color:rgb(255,0,0); border: 2px solid rgb(255,0,0);  border-radius: 5px ;font-weight: bold; font-size: 14px ;">
-                                                            {{ $item->gia_moi }}</div>
+                                                            @{{ value.gia_moi }}</div>
                                                     </div>
                                                 </div>
+
+
                                             </div>
                                             <a href="#" class="d-flex justify-content-center pt-4 pb-1">
                                                 <img src="https://cdn.upanh.info/storage/upload/acc-category-shopngocrongnet/29/images/muangay.jpg"
@@ -128,14 +134,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
-
-
-                            {{-- </template> --}}
+                            </template>
                             {{-- end --}}
                         </div>
-                       {{-- @{{ list_danh_muc_game->links() }} --}}
-                       {{$data->links()}}
+
                     </div>
 
                     <div class="col-md-1">
@@ -205,12 +207,12 @@
                 list_danh_muc_game: [],
             },
             created() {
-                // axios
-                //     .get('http://127.0.0.1:8000/api/api-nro')
-                //     .then((res) => {
-                //         this.list_danh_muc_game = res.data;
-                //         this.data = res;
-                //     })
+                axios
+                    .get('http://127.0.0.1:8000/api/api-nro')
+                    .then((res) => {
+                    console.log(res.data);
+                        this.list_danh_muc_game = res.data;
+                    })
             },
             methods: {},
         });

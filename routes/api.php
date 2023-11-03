@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DanhMucGameController;
+use App\Http\Controllers\DichVuGameController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/api-nro',[DanhMucGameController::class,'layData']);
+Route::get('/api-danhMucGame-nro',[DanhMucGameController::class,'layData']);
+Route::get('/api-dichVuGame-nro',[DichVuGameController::class,'layData']);
