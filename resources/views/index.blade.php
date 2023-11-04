@@ -23,9 +23,9 @@
                                 </div>
                             </div>
                             <div class="col-md-8">
-
+{{--
                                 <swiper-container class="mySwiper" pagination="true" pagination-clickable="true"
-                                   space-between="30" centered-slides="true" autoplay-delay="2500"
+                                    space-between="30" centered-slides="true" autoplay-delay="2500"
                                     autoplay-disable-on-interaction="false">
                                     <swiper-slide>
                                         <a href="">
@@ -52,7 +52,7 @@
                                         </a>
                                     </swiper-slide>
 
-                                </swiper-container>
+                                </swiper-container> --}}
                             </div>
                         </div>
                     </div>
@@ -67,20 +67,20 @@
                         <h2 class="text-center dichvu pt-3 pb-2" style="color:white; font-weight:bold;">DỊCH VỤ NỔI
                             BẬT</h2>
                         <div class="row py-5">
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-6 col-sm-6">
                                 <a href=""> <img src="https://cdn.upanh.info/storage/upload/images/dich-vu.png"
                                         alt="" width="100%" class="img-fluid"></a>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-6 col-sm-6">
                                 <a href=""> <img
                                         src="https://cdn.upanh.info/storage/upload/images/nick-ngoc-rong.png" alt=""
                                         width="100%" class="img-fluid"></a>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-md-6 col-sm-6">
                                 <a href=""> <img src="https://cdn.upanh.info/storage/upload/images/nap-the-cao.png"
                                         alt="" width="100%" class="img-fluid"></a>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-lg-3 col-md-3 col-md-6 col-sm-6">
                                 <a href=""> <img src="https://cdn.upanh.info/storage/upload/images/nap-atm.png"
                                         alt="" width="100%" class="img-fluid"></a>
                             </div>
@@ -98,8 +98,8 @@
                         <div class="row py-4">
                             {{-- start --}}
                             <template v-for="(value , key) in list_danh_muc_game">
-                                <div class="col-md-3 pb-4">
-                                    <div class="card"
+                                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6  pb-4 d-flex">
+                                    <div class="card flex-fill"
                                         style="width: 100%; background-color: rgba(18, 17, 15, 0.18); border: 1px solid white;">
                                         <a href=""><img v-bind:src="value.hinh_anh" class="card-img-top"
                                                 alt="..."
@@ -156,32 +156,93 @@
                         <h2 class="text-center dichvu pt-3 pb-2" style="color:white; font-weight:bold;">DỊCH VỤ GAME</h2>
                         <div class="row py-4">
                             {{-- start --}}
-                            <div class="col-md-3 pb-4">
-                                <div class="card"
-                                    style="width: 100%; background-color: rgba(18, 17, 15, 0.18); border: 1px solid white">
-                                    <a href=""><img
-                                            src="https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-6/397488538_304500719192273_4485216510177784341_n.jpg?stp=dst-jpg_s640x640&_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEsr_WAEl6LBZPFqgQzBjIcV_454g9yQoJX_jniD3JCgi0sYYtin1sDzxpdZZ01VgNXJrAb2WKNr5ohjhsoHjh5&_nc_ohc=kWmpWYNhdRsAX_flrt1&_nc_ht=scontent.fhan3-3.fna&oh=00_AfDt9rfS-ObiTvMvBFEriobXLBkoYrufvons3ymaj5Z0Ww&oe=6548298E"
-                                            class="card-img-top" alt="..."
-                                            style=" object-fit: cover;
+                            <template v-for="(value,key) in list_dich_vu_game">
+                                <div class="col-md-3 pb-4">
+                                    <div class="card"
+                                        style="width: 100%; background-color: rgba(18, 17, 15, 0.18); border: 1px solid white">
+                                        <a href=""><img
+                                                v-bind:src="value.hinh_anh"
+                                                class="card-img-top" alt="..."
+                                                style=" object-fit: cover;
                                             height: 149px;"></a>
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center  text-container"
-                                            style="text-transform: uppercase; font-weight: bold ;font-size: 14px ;color:rgb(241,196,15);">
-                                            nik lq</h5>
-                                        <p class="card-text text-center" style=" font-size: 13px ;color:#fff;">
-                                            992</p>
-                                        <a href="#" class="d-flex justify-content-center pt-4 pb-1">
-                                            <img src="https://cdn.upanh.info/storage/upload/acc-category-shopngocrongnet/29/images/muangay.jpg"
-                                                alt="" width="70%" class="muangay">
-                                        </a>
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center  text-container"
+                                                style="text-transform: uppercase; font-weight: bold ;font-size: 14px ;color:rgb(241,196,15);">
+                                                @{{value.tieu_de}}</h5>
+                                            <p class="card-text text-center" style=" font-size: 13px ;color:#fff;">
+                                                @{{value.so_giao_dich}}</p>
+                                            <a href="#" class="d-flex justify-content-center pt-4 pb-1">
+                                                <img src="https://cdn.upanh.info/storage/upload/acc-category-shopngocrongnet/29/images/muangay.jpg"
+                                                    alt="" width="70%" class="muangay">
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </template>
                             {{-- end --}}
                         </div>
                     </div>
                     <div class="col-md-1"></div>
                 </div>
+            </div>
+
+             {{-- Danh mục game --}}
+             <div class="container pt-4">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10" style="background-color: rgba(18, 17, 15, 0.858);">
+                        <h2 class="text-center dichvu pt-3 pb-2" style="color:white; font-weight:bold;">MINI GAME</h2>
+                        <div class="row py-4">
+                            {{-- start --}}
+                            <template v-for="(value , key) in list_mini_game">
+                                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6  pb-4 d-flex">
+                                    <div class="card flex-fill"
+                                        style="width: 100%; background-color: rgba(18, 17, 15, 0.18); border: 1px solid white;">
+                                        <a href=""><img v-bind:src="value.hinh_anh" class="card-img-top"
+                                                alt="..."
+                                                style=" object-fit: cover;
+                                        height: 149px;"></a>
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center"
+                                                style="text-transform: uppercase; font-weight: bold ;font-size: 14px ;color:rgb(241,196,15);">
+                                                @{{ value.tieu_de }}</h5>
+                                            <p class="card-text text-center" style=" font-size: 13px ;color:#fff;">
+                                                @{{ value.so_lan_quay }}</p>
+                                            <div class="price">
+                                                <div class="row text-center d-flex justify-content-center">
+                                                    <div class="col-md-5">
+                                                        <div class=" old-price py-1"
+                                                            style="color:rgb(51,255,0); border: 2px solid rgb(51,255,0); border-radius: 5px ; font-weight: bold; font-size: 14px ;">
+                                                            @{{ value.gia_cu }}</div>
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <div class="current-price py-1 "
+                                                            style="color:rgb(255,0,0); border: 2px solid rgb(255,0,0);  border-radius: 5px ;font-weight: bold; font-size: 14px ;">
+                                                            @{{ value.gia_moi }}</div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            <a href="#" class="d-flex justify-content-center pt-4 pb-1">
+                                                <img src="https://cdn.upanh.info/storage/upload/acc-category-shopngocrongnet/29/images/muangay.jpg"
+                                                    alt="" width="70%" class="muangay">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                            {{-- end --}}
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-1">
+
+                    </div>
+
+                </div>
+
             </div>
 
             <div class="container pt-4 ">
@@ -205,14 +266,29 @@
             el: '#app',
             data: {
                 list_danh_muc_game: [],
+                list_dich_vu_game: [],
+                list_mini_game: [],
             },
             created() {
-                axios
-                    .get('http://127.0.0.1:8000/api/api-nro')
-                    .then((res) => {
-                    console.log(res.data);
-                        this.list_danh_muc_game = res.data;
-                    })
+                // Sử dụng Promise.all để gửi các yêu cầu GET đồng thời
+               axios
+               .get('http://127.0.0.1:8000/api/api-danhMucGame-nro')
+               .then((res)=>{
+                this.list_danh_muc_game = res.data;
+                // console.log(res.data);
+               }),
+               axios
+               .get('http://127.0.0.1:8000/api/api-dichVuGame-nro')
+               .then((res)=>{
+                this.list_dich_vu_game = res.data;
+                // console.log(res.data);
+               }),
+               axios
+               .get('http://127.0.0.1:8000/api/api-miniGame-nro')
+               .then((res)=>{
+                this.list_mini_game = res.data;
+                console.log(res.data);
+               })
             },
             methods: {},
         });
