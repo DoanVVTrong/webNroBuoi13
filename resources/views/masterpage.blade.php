@@ -9,9 +9,10 @@
     <div id="wrapper-main" style="position: relative;">
         @include('navbar')
         @yield('content')
-        @yield('contentJS')
-        @include('js')
+        @include('footer')
     </div>
+    @yield('contentJS')
+    @include('js')
 </body>
 
 </html>

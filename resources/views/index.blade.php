@@ -23,36 +23,36 @@
                                 </div>
                             </div>
                             <div class="col-md-8">
-{{--
+
                                 <swiper-container class="mySwiper" pagination="true" pagination-clickable="true"
-                                    space-between="30" centered-slides="true" autoplay-delay="2500"
+                                    space-between="30" centered-slides="true" autoplay-delay="1500"
                                     autoplay-disable-on-interaction="false">
                                     <swiper-slide>
                                         <a href="">
-                                            <img src="/assets/slide1.gif" class="d-block w-100 carousel-image"
+                                            <img style="object-fit: cover" src="/assets/slide4.gif" class="d-block w-100 carousel-image"
                                                 alt="...">
                                         </a>
                                     </swiper-slide>
                                     <swiper-slide>
                                         <a href="">
-                                            <img src="/assets/slide2.gif" class="d-block w-100 carousel-image"
+                                            <img style="object-fit: cover" src="/assets/slide1.gif" class="d-block w-100 carousel-image"
                                                 alt="...">
                                         </a>
                                     </swiper-slide>
                                     <swiper-slide>
                                         <a href="">
-                                            <img src="/assets/slide3.png" class="d-block w-100 carousel-image"
+                                            <img style="object-fit: cover" src="/assets/slide3.png" class="d-block w-100 carousel-image"
                                                 alt="...">
                                         </a>
                                     </swiper-slide>
                                     <swiper-slide>
                                         <a href="">
-                                            <img src="/assets/slide4.gif" class="d-block w-100 carousel-image"
+                                            <img style="object-fit: cover" src="/assets/slide1.gif" class="d-block w-100 carousel-image"
                                                 alt="...">
                                         </a>
                                     </swiper-slide>
 
-                                </swiper-container> --}}
+                                </swiper-container>
                             </div>
                         </div>
                     </div>
@@ -160,17 +160,16 @@
                                 <div class="col-md-3 pb-4">
                                     <div class="card"
                                         style="width: 100%; background-color: rgba(18, 17, 15, 0.18); border: 1px solid white">
-                                        <a href=""><img
-                                                v-bind:src="value.hinh_anh"
-                                                class="card-img-top" alt="..."
+                                        <a href=""><img v-bind:src="value.hinh_anh" class="card-img-top"
+                                                alt="..."
                                                 style=" object-fit: cover;
                                             height: 149px;"></a>
                                         <div class="card-body">
                                             <h5 class="card-title text-center  text-container"
                                                 style="text-transform: uppercase; font-weight: bold ;font-size: 14px ;color:rgb(241,196,15);">
-                                                @{{value.tieu_de}}</h5>
+                                                @{{ value.tieu_de }}</h5>
                                             <p class="card-text text-center" style=" font-size: 13px ;color:#fff;">
-                                                @{{value.so_giao_dich}}</p>
+                                                @{{ value.so_giao_dich }}</p>
                                             <a href="#" class="d-flex justify-content-center pt-4 pb-1">
                                                 <img src="https://cdn.upanh.info/storage/upload/acc-category-shopngocrongnet/29/images/muangay.jpg"
                                                     alt="" width="70%" class="muangay">
@@ -186,8 +185,8 @@
                 </div>
             </div>
 
-             {{-- Danh mục game --}}
-             <div class="container pt-4">
+            {{-- Danh mục game --}}
+            <div class="container pt-4">
                 <div class="row">
                     <div class="col-md-1"></div>
                     <div class="col-md-10" style="background-color: rgba(18, 17, 15, 0.858);">
@@ -260,6 +259,7 @@
         </section>
     </div>
 @endsection
+
 @section('contentJS')
     <script>
         new Vue({
@@ -271,24 +271,24 @@
             },
             created() {
                 // Sử dụng Promise.all để gửi các yêu cầu GET đồng thời
-               axios
-               .get('http://127.0.0.1:8000/api/api-danhMucGame-nro')
-               .then((res)=>{
-                this.list_danh_muc_game = res.data;
-                // console.log(res.data);
-               }),
-               axios
-               .get('http://127.0.0.1:8000/api/api-dichVuGame-nro')
-               .then((res)=>{
-                this.list_dich_vu_game = res.data;
-                // console.log(res.data);
-               }),
-               axios
-               .get('http://127.0.0.1:8000/api/api-miniGame-nro')
-               .then((res)=>{
-                this.list_mini_game = res.data;
-                console.log(res.data);
-               })
+                axios
+                    .get('http://127.0.0.1:8000/api/api-danhMucGame-nro')
+                    .then((res) => {
+                        this.list_danh_muc_game = res.data;
+                        // console.log(res.data);
+                    }),
+                    axios
+                    .get('http://127.0.0.1:8000/api/api-dichVuGame-nro')
+                    .then((res) => {
+                        this.list_dich_vu_game = res.data;
+                        // console.log(res.data);
+                    }),
+                    axios
+                    .get('http://127.0.0.1:8000/api/api-miniGame-nro')
+                    .then((res) => {
+                        this.list_mini_game = res.data;
+                        console.log(res.data);
+                    })
             },
             methods: {},
         });
