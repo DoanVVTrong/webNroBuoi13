@@ -1,4 +1,4 @@
-@extends('masterpage')
+@extends('pages.index.masterpage')
 @section('content')
     <div id="app">
         <section class="py-4">
@@ -98,7 +98,7 @@
                         <div class="row py-4">
                             {{-- start --}}
                             <template v-for="(value , key) in list_danh_muc_game">
-                                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6  pb-4 d-flex">
+                                <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6  pb-4 d-flex">
                                     <div class="card flex-fill"
                                         style="width: 100%; background-color: rgba(18, 17, 15, 0.18); border: 1px solid white;">
                                         <a href=""><img v-bind:src="value.hinh_anh" class="card-img-top"
@@ -114,7 +114,7 @@
                                             <div class="price">
                                                 <div class="row text-center d-flex justify-content-center">
                                                     <div class="col-md-5">
-                                                        <div class=" old-price py-1"
+                                                        <div class=" old-price py-1 mb-sm-2 mb-xs-2"
                                                             style="color:rgb(51,255,0); border: 2px solid rgb(51,255,0); border-radius: 5px ; font-weight: bold; font-size: 14px ;">
                                                             @{{ value.gia_cu }}</div>
                                                     </div>
@@ -157,7 +157,7 @@
                         <div class="row py-4">
                             {{-- start --}}
                             <template v-for="(value,key) in list_dich_vu_game">
-                                <div class="col-md-3 pb-4">
+                                <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6  pb-4 d-flex ">
                                     <div class="card"
                                         style="width: 100%; background-color: rgba(18, 17, 15, 0.18); border: 1px solid white">
                                         <a href=""><img v-bind:src="value.hinh_anh" class="card-img-top"
@@ -194,7 +194,7 @@
                         <div class="row py-4">
                             {{-- start --}}
                             <template v-for="(value , key) in list_mini_game">
-                                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6  pb-4 d-flex">
+                                <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-xs-6  pb-4 d-flex">
                                     <div class="card flex-fill"
                                         style="width: 100%; background-color: rgba(18, 17, 15, 0.18); border: 1px solid white;">
                                         <a href=""><img v-bind:src="value.hinh_anh" class="card-img-top"
@@ -203,14 +203,14 @@
                                         height: 149px;"></a>
                                         <div class="card-body">
                                             <h5 class="card-title text-center"
-                                                style="text-transform: uppercase; font-weight: bold ;font-size: 14px ;color:rgb(241,196,15);">
+                                                style="text-transform: uppercase; font-weight: bold ;font-size: 14px ;color:rgb(241,196,15); height: 30px;">
                                                 @{{ value.tieu_de }}</h5>
                                             <p class="card-text text-center" style=" font-size: 13px ;color:#fff;">
                                                 @{{ value.so_lan_quay }}</p>
                                             <div class="price">
                                                 <div class="row text-center d-flex justify-content-center">
                                                     <div class="col-md-5">
-                                                        <div class=" old-price py-1"
+                                                        <div class=" old-price py-1 mb-sm-2 mb-xs-2"
                                                             style="color:rgb(51,255,0); border: 2px solid rgb(51,255,0); border-radius: 5px ; font-weight: bold; font-size: 14px ;">
                                                             @{{ value.gia_cu }}</div>
                                                     </div>
