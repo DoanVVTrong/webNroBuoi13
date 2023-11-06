@@ -22,3 +22,4 @@ Route::get('/api-dichVuGame-nro',[DichVuGameController::class,'layData']);
 Route::get('/api-miniGame-nro',[MiniGameModelController::class,'layData']);
 Route::post('/api-taoData-miniGame-nro',[MiniGameModelController::class,'taoData']);
 Route::post('/api-xoaData-miniGame-nro',[MiniGameModelController::class,'xoaData']);
+Route::put('/api-updateData-miniGame-nro',[MiniGameModelController::class,'updateData']);
