@@ -20,3 +20,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/api-danhMucGame-nro',[DanhMucGameController::class,'layData']);
 Route::get('/api-dichVuGame-nro',[DichVuGameController::class,'layData']);
 Route::get('/api-miniGame-nro',[MiniGameModelController::class,'layData']);
+Route::post('/api-taoData-miniGame-nro',[MiniGameModelController::class,'taoData']);
+Route::post('/api-xoaData-miniGame-nro',[MiniGameModelController::class,'xoaData']);

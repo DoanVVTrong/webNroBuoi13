@@ -103,6 +103,7 @@
     <!--end switcher-->
     <!-- Bootstrap JS -->
     @include('pages.admin.js')
+    @yield('contentJS')
 </body>
 
 </html>

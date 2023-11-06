@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('hinh_anh');
             $table->string('tieu_de');
             $table->string('so_giao_dich');
+            $table->integer('tinh_trang');
             $table->timestamps();
         });
     }

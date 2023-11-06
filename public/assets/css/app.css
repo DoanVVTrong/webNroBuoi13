@@ -4057,6 +4057,14 @@ a {
 .hover-profile:hover{
     color:blue !important;
 }
+
+.btn-opacity{
+    opacity: 0.8;
+}
+
+.hover-btn:hover{
+ opacity: 1;
+}
 /* end tạo mới css */
 
 

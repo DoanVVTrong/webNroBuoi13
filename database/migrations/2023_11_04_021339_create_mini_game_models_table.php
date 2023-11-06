@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('so_lan_quay');
             $table->string('gia_cu');
             $table->string('gia_moi');
+            $table->integer('tinh_trang');
             $table->timestamps();
         });
     }

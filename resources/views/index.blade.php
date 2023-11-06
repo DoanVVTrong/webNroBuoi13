@@ -25,7 +25,7 @@
                             <div class="col-md-8">
 
                                 <swiper-container class="mySwiper" pagination="true" pagination-clickable="true"
-                                    space-between="30" centered-slides="true" autoplay-delay="1500"
+                                    space-between="30" centered-slides="true" autoplay-delay="1200"
                                     autoplay-disable-on-interaction="false">
                                     <swiper-slide>
                                         <a href="">
@@ -35,7 +35,7 @@
                                     </swiper-slide>
                                     <swiper-slide>
                                         <a href="">
-                                            <img style="object-fit: cover" src="/assets/slide1.gif" class="d-block w-100 carousel-image"
+                                            <img style="object-fit: cover" src="/assets/slide2.gif" class="d-block w-100 carousel-image"
                                                 alt="...">
                                         </a>
                                     </swiper-slide>

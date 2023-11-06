@@ -26,8 +26,12 @@ class DanhMucGameController extends Controller
         return view('view-MiniGame');
     }
 
+    public function indexContact(){
+        return view('view-contact');
+    }
+
     public function layData(){
-        $data = ngocRongModel::select('id','hinh_anh','tieu_de','gia_cu','gia_moi','so_tai_khoan')->get();
+        $data = ngocRongModel::select('id','hinh_anh','tieu_de','gia_cu','gia_moi','so_tai_khoan','tinh_trang')->get();
         return response()->json($data);
     }
 }

@@ -6,7 +6,7 @@
                     <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
                 </div>
                 <div class="">
-                    <h4 class="logo-text">Rocker</h4>
+                    <h4 class="logo-text">Ashton</h4>
                 </div>
             </div>
             <div class="mobile-toggle-menu"><i class='bx bx-menu'></i></div>
@@ -224,7 +224,7 @@
                                 <a class="dropdown-item" href="javascript:;">
                                     <div class="d-flex align-items-center">
                                         <div class="user-online">
-                                            <img src="assets/images/avatars/avatar-2.png" class="msg-avatar"
+                                            <img src="/assets/avatar.jpg" class="msg-avatar"
                                                 alt="user avatar">
                                         </div>
                                         <div class="flex-grow-1">
@@ -363,9 +363,9 @@
             <div class="user-box dropdown">
                 <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#"
                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="assets/images/avatars/avatar-2.png" class="user-img" alt="user avatar">
+                    <img src="/assets/avatar.jpg" class="user-img" alt="user avatar">
                     <div class="user-info ps-3">
-                        <p class="user-name mb-0">Pauline Seitz</p>
+                        <p class="user-name mb-0">Văn Trọng</p>
                         <p class="designattion mb-0">Web Designer</p>
                     </div>
                 </a>
@@ -437,6 +437,13 @@
                     <div class="parent-icon"><i class="fa-solid fa-gamepad"></i>
                     </div>
                     <div class="menu-title">Mini game</div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/view-contact" class="nav-link">
+                    <div class="parent-icon"><i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <div class="menu-title">Contact</div>
                 </a>
             </li>
         </ul>
