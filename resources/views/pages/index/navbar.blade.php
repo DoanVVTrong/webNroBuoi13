@@ -1,10 +1,10 @@
 <nav class="my-navbar" style="background-color: rgba(18, 17, 15, 0.858);">
     <div class="container pt-5 pb-4">
         <div class="row d-flex align-items-center">
-            <div class="col-5"><a href=""><img
+            <div class="col-5 col-md-5 col-lg-5 col-sm-9"><a href=""><img
                         src="https://cdn.upanh.info/storage/upload/images/Logo%20shop/logo-shopaccnro.png"
                         width="50%" alt=""></a></div>
-            <div class="col-7 d-flex align-items-center" style="flex-direction: row-reverse">
+            <div class="col-7 col-md-5 col-lg-7 col-sm-3 d-flex align-items-center" style="flex-direction: row-reverse">
                 <div class="nav__icon" style="cursor: pointer;">
                     <i class="fa-solid fa-bars" \></i>
                 </div>

@@ -524,6 +524,14 @@ class danhMucGameSeeders extends Seeder
                     "so_tai_khoan" => "Số tài khoản: 2828",
                     "tinh_trang" => 1
                 ],
+                [
+                    "hinh_anh" => "https://cdn.upanh.info/storage/upload/images/Shop%20ADS/n6Nk9g2iV4_1668061505.gif",
+                    "tieu_de" => "RANDOM LIÊN QUÂN 9K",
+                    "gia_cu" => "727.991 đ",
+                    "gia_moi" => "6.666 đ",
+                    "so_tai_khoan" => "Số tài khoản: 5325",
+                    "tinh_trang" => 1
+                ],
             ]
 
             // end

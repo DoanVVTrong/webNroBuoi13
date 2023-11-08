@@ -5,7 +5,7 @@
             <div class="col-md-12">
                 <div class="card text-dark border border-2 border-primary">
                     <div class="card-header">
-                        <h5 class="text-danger" style="font-weight: bold">Thêm Danh Mục Game</h5>
+                        <h5 class="text-danger" style="font-weight: bold">Thêm Mini Game</h5>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -74,7 +74,19 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="text-danger" style="font-weight: bold">Quản lý Mini game </h5>
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <div class="col-md-6">
+                                    <h5 class="text-danger mb-0" style="font-weight: bold">Quản lý Mini game
+                                    </h5>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" class="form-control shadow-none py-2 my-2 fs-6" placeholder="Tìm kiếm theo tên!"
+                                        aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    <span class="input-group-text py-2 my-2 fs-6 btn btn-danger" id="basic-addon2"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <table class="table table-bordered">
@@ -106,9 +118,9 @@
                                         <td class="text-center align-middle">@{{ value.gia_moi }}</td>
                                         <td class="text-center align-middle">
                                             <div class="btn btn-success" v-if="value.tinh_trang == 1"
-                                                v-on:click="value.tinh_trang = 0 ">Hiển thị</div>
+                                                v-on:click="value.tinh_trang = 0 ;chuyenDoiTrangThai(value)">Hiển thị</div>
                                             <div class="btn btn-warning" v-if="value.tinh_trang == 0"
-                                                v-on:click="value.tinh_trang = 1">Tạm tắt</div>
+                                                v-on:click="value.tinh_trang = 1 ;chuyenDoiTrangThai(value)">Tạm tắt</div>
                                         </td>
                                         <td class="text-center align-middle">
                                             <div style="cursor: pointer;" class="hover-btn btn-opacity"><i
@@ -137,13 +149,13 @@
                                                     <div class="alert alert-danger" role="alert">
                                                         <i> Bạn có chắc chắn muốn xoá ?</i>
                                                     </div>
-                                                    <i class="fa-solid fa-play"></i><i><b> @{{ value.tieu_de }}</b></i>
+                                                    <i class="fa-solid fa-play"></i> <b><i> @{{ delte.tieu_de }}</i></b>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-primary"
                                                         data-bs-dismiss="modal">Cancel</button>
                                                     <button type="button" class="btn btn-danger"
-                                                        v-on:click="xoaData(value)">Remove</button>
+                                                        v-on:click="xoaData(delte)">Remove</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -281,7 +293,6 @@
     <script>
         new Vue({
             el: '#app',
-
             data: {
                 list_mini_game: [],
                 delte: {},
@@ -301,6 +312,13 @@
                 this.hienThiData();
             },
             methods: {
+                chuyenDoiTrangThai(value) {
+                    axios
+                        .post('http://127.0.0.1:8000/api/api-chuyenDoiTrangThaiMini-miniGame-nro', value)
+                        .then((res) => {
+                            this.hienThiData();
+                        })
+                },
                 themData() {
                     axios
                         .post('http://127.0.0.1:8000/api/api-taoData-miniGame-nro', this.list)

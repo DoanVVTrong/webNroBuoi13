@@ -78,7 +78,19 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="text-danger" style="font-weight: bold">Quản lý sản phẩm Danh mục game </h5>
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <div class="col-md-6">
+                                    <h5 class="text-danger mb-0" style="font-weight: bold">Quản lý sản phẩm Danh mục game
+                                    </h5>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" class="form-control shadow-none py-2 my-2 fs-6" placeholder="Tìm kiếm theo tên!"
+                                        aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    <span class="input-group-text py-2 my-2 fs-6 btn btn-danger" id="basic-addon2"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <table class="table table-bordered">
@@ -109,9 +121,11 @@
                                         <td class="text-center align-middle">@{{ value.gia_moi }}</td>
                                         <td class="text-center align-middle">
                                             <div class="btn btn-success" v-if="value.tinh_trang == 1"
-                                                v-on:click="chuyenDoiTrangThai(value) ; value.tinh_trang == 0 ">Hiển thị</div>
+                                                v-on:click="value.tinh_trang = 0 ;chuyenDoiTrangThai(value, key)">Hiển thị
+                                            </div>
                                             <div class="btn btn-warning" v-if="value.tinh_trang == 0"
-                                                v-on:click="chuyenDoiTrangThai(value) ;  value.tinh_trang ==1">Tạm tắt</div>
+                                                v-on:click="value.tinh_trang = 1 ;chuyenDoiTrangThai(value, key)">Tạm tắt
+                                            </div>
                                         </td>
                                         <td class="text-center align-middle">
                                             <div><i class="fa-solid fa-trash text-danger fs-4" v-on:click="delte = value"
@@ -290,16 +304,16 @@
                     'gia_moi': '',
                     'tinh_trang': '',
                 },
+                newStatus: {}
             },
             created() {
                 this.hienThiData();
             },
             methods: {
-                chuyenDoiTrangThai(value) {
-                    // value.tinh_trang = !(value.tinh_trang);
-                    // const tinh_trang = {
-                    //     'key_tinh_trang': value.tinh_trang
-                    // }
+                changeStatus() {
+
+                },
+                chuyenDoiTrangThai(value, key) {
                     axios
                         .post('http://127.0.0.1:8000/api/api-chuyenDoiTrangThai-danhMucGame-nro', value)
                         .then((res) => {

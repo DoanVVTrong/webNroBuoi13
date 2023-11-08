@@ -37,3 +37,5 @@ Route::put('/api-updateData-dichVuGame-nro', [DichVuGameController::class, 'upda
 
 // chuyển đổi trạng thái
 Route::post('/api-chuyenDoiTrangThai-danhMucGame-nro', [chuyenDoiController::class, 'chuyenDoiTrangThaiDanhMucGame']);
+Route::post('/api-chuyenDoiTrangThaiDV-danhMucGame-nro', [chuyenDoiController::class, 'chuyenDoiTrangThaiDichVuGame']);
+Route::post('/api-chuyenDoiTrangThaiMini-miniGame-nro', [chuyenDoiController::class, 'chuyenDoiTrangThaiMiniGame']);

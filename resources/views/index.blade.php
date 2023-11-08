@@ -150,7 +150,7 @@
                         <h2 class="text-center dichvu pt-3 pb-2" style="color:white; font-weight:bold;">DỊCH VỤ GAME</h2>
                         <div class="row py-4">
                             {{-- start --}}
-                            <template v-for="(value,key) in list_dich_vu_game">
+                            <template v-for="(value,key) in list_dich_vu_game"  v-if="value.tinh_trang == 1">
                                 <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6  pb-4 d-flex ">
                                     <div class="card"
                                         style="width: 100%; background-color: rgba(18, 17, 15, 0.18); border: 1px solid white">
@@ -187,7 +187,7 @@
                         <h2 class="text-center dichvu pt-3 pb-2" style="color:white; font-weight:bold;">MINI GAME</h2>
                         <div class="row py-4">
                             {{-- start --}}
-                            <template v-for="(value , key) in list_mini_game">
+                            <template v-for="(value , key) in list_mini_game" v-if="value.tinh_trang == 1">
                                 <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-xs-6  pb-4 d-flex">
                                     <div class="card flex-fill"
                                         style="width: 100%; background-color: rgba(18, 17, 15, 0.18); border: 1px solid white;">

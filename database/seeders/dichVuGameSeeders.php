@@ -108,6 +108,12 @@ class dichVuGameSeeders extends Seeder
                 'so_giao_dich' => 'Số giao dịch: 1623',
                 'tinh_trang' => 1,
             ],
+            [
+                'hinh_anh' => 'https://cdn.upanh.info/storage/upload/images/DICH-VU-BAN-VANG-TU-DONG.gif',
+                'tieu_de' => 'Săn Đệ NRO',
+                'so_giao_dich' => 'Số giao dịch: 1789',
+                'tinh_trang' => 1,
+            ],
         ]);
     }
 }

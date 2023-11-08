@@ -54,7 +54,19 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="text-danger" style="font-weight: bold">Quản lý Dịch vụ game </h5>
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <div class="col-md-6">
+                                    <h5 class="text-danger mb-0" style="font-weight: bold">Quản lý Dịch vụ game
+                                    </h5>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" class="form-control shadow-none py-2 my-2 fs-6" placeholder="Tìm kiếm theo tên!"
+                                        aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    <span class="input-group-text py-2 my-2 fs-6 btn btn-danger" id="basic-addon2"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <table class="table table-bordered">
@@ -81,9 +93,11 @@
                                         <td class="text-center align-middle">@{{ value.so_giao_dich }}</td>
                                         <td class="text-center align-middle">
                                             <div class="btn btn-success" v-if="value.tinh_trang == 1"
-                                                v-on:click="value.tinh_trang = 0 ">Hiển thị</div>
+                                                v-on:click="value.tinh_trang = 0 ;chuyenDoiTrangThai(value)">Hiển thị
+                                            </div>
                                             <div class="btn btn-warning" v-if="value.tinh_trang == 0"
-                                                v-on:click="value.tinh_trang = 1">Tạm tắt</div>
+                                                v-on:click="value.tinh_trang = 1 ; chuyenDoiTrangThai(value) ">Tạm tắt
+                                            </div>
                                         </td>
                                         <td class="text-center align-middle">
                                             <div><i style="cursor: pointer;" class="fa-solid fa-trash text-danger fs-4"
@@ -172,14 +186,16 @@
                                                                 <div class="col-md-6">
                                                                     <label for=""><b>Tình
                                                                             trạng</b></label>
-                                                                            <select aria-label="Large select example"  v-model="list_update.tinh_trang"
+                                                                    <select aria-label="Large select example"
+                                                                        v-model="list_update.tinh_trang"
                                                                         class="form-select form-control mt-2 mb-2">
                                                                         <option selected="selected" disabled="disabled">
                                                                             Mặc
                                                                             định</option>
                                                                         <option value="1">Hiển thị</option>
                                                                         <option value="0">Tạm tắt</option>
-                                                                    </select></div>
+                                                                    </select>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -187,7 +203,7 @@
                                                 <div class="modal-footer">
                                                     <div class="btn btn-primary" data-bs-dismiss="modal">Cancel</div>
                                                     <div class="btn btn-success" v-on:click="updateData()">Update</div>
-                                                  </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -222,6 +238,13 @@
             },
 
             methods: {
+                chuyenDoiTrangThai(value) {
+                    axios
+                        .post('http://127.0.0.1:8000/api/api-chuyenDoiTrangThaiDV-danhMucGame-nro', value)
+                        .then((res) => {
+                            this.hienThiData();
+                        })
+                },
                 themMoiData() {
                     axios
                         .post('http://127.0.0.1:8000/api/api-taoData-dichVuGame-nro', this.list)
@@ -241,7 +264,7 @@
                     $('.modal-backdrop.show').remove(); // Xóa lớp overlay
                     this.hienThiData();
                 },
-                updateData(){
+                updateData() {
                     axios
                         .put('http://127.0.0.1:8000/api/api-updateData-dichVuGame-nro', this.list_update)
                         .then((res) => {
@@ -258,7 +281,6 @@
                         .get('http://127.0.0.1:8000/api/api-dichVuGame-nro')
                         .then((res) => {
                             this.list_dich_vu_game = res.data;
-                            console.log(res.data);
                         })
                 }
             },
