@@ -4,6 +4,7 @@ use App\Http\Controllers\chuyenDoiController;
 use App\Http\Controllers\DanhMucGameController;
 use App\Http\Controllers\DichVuGameController;
 use App\Http\Controllers\MiniGameModelController;
+use App\Http\Controllers\xoaAllDataController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -39,3 +40,8 @@ Route::put('/api-updateData-dichVuGame-nro', [DichVuGameController::class, 'upda
 Route::post('/api-chuyenDoiTrangThai-danhMucGame-nro', [chuyenDoiController::class, 'chuyenDoiTrangThaiDanhMucGame']);
 Route::post('/api-chuyenDoiTrangThaiDV-danhMucGame-nro', [chuyenDoiController::class, 'chuyenDoiTrangThaiDichVuGame']);
 Route::post('/api-chuyenDoiTrangThaiMini-miniGame-nro', [chuyenDoiController::class, 'chuyenDoiTrangThaiMiniGame']);
+
+// Xoá all data
+Route::post('/api-xoaAllData-danhMucgame-nro', [xoaAllDataController::class, 'xoaDataDanhMucGame']);
+Route::post('/api-addAllData-danhMucgame-nro', [xoaAllDataController::class, 'addDataDanhMucGame']);
+

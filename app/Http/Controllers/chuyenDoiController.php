@@ -17,6 +17,8 @@ class chuyenDoiController extends Controller
             $danhMucGame->tinh_trang = !$danhMucGame->tinh_trang;
             $danhMucGame->save();
         }
+        // $data = ngocRongModel::where('tieu_de', 'like', '%' . $request->content . '%')->get();
+        // dd($data);
     }
 
     public function chuyenDoiTrangThaiDichVuGame(Request $request)

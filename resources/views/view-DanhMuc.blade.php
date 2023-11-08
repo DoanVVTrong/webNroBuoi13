@@ -80,14 +80,18 @@
                     <div class="card-header">
                         <div class="row d-flex justify-content-between align-items-center">
                             <div class="col-md-6">
-                                    <h5 class="text-danger mb-0" style="font-weight: bold">Quản lý sản phẩm Danh mục game
-                                    </h5>
+                                <h5 class="text-danger mb-0" style="font-weight: bold">Quản lý sản phẩm Danh mục game
+                                </h5>
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input type="text" class="form-control shadow-none py-2 my-2 fs-6" placeholder="Tìm kiếm theo tên!"
-                                        aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                    <span class="input-group-text py-2 my-2 fs-6 btn btn-danger" id="basic-addon2"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                    <input type="text" class="form-control shadow-none py-2 my-2 fs-6"
+                                        placeholder="Tìm kiếm theo tên!" aria-label="Recipient's username"
+                                        v-on:keyup.enter="search() ;  timKiemTT()" aria-describedby="basic-addon2"
+                                        v-model = "TT_tim_kiem">
+                                    <span v-on:click="search() ; timKiemTT()"
+                                        class="input-group-text py-2 my-2 fs-6 btn btn-danger" id="basic-addon2"><i
+                                            class="fa-solid fa-magnifying-glass"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -293,7 +297,11 @@
         new Vue({
             el: '#app',
             data: {
+                TT_tim_kiem: '',
                 list_danh_muc_game: [],
+                list_tim_kiem: [],
+                list_clone: [],
+                check_search: 0,
                 delte: '',
                 updated_list: '',
                 list: {
@@ -310,8 +318,48 @@
                 this.hienThiData();
             },
             methods: {
-                changeStatus() {
+                timKiemTT() {
+                    axios
+                        .post('/api/api-addAllData-danhMucgame-nro', this.list_danh_muc_game)
+                        .then((res) => {
 
+                        })
+                },
+                // search() {
+                //     console.log(this.list_danh_muc_game);
+                //     var x = this.TT_tim_kiem.toLowerCase();
+                //     console.log(x);
+                //     this.list_danh_muc_game = this.list_danh_muc_game.filter((items) => {
+                //         return items.tieu_de.toLowerCase().includes(x); // xoá trên front-end
+                //     });
+
+                //     var list_danh_muc_game_new = [...this.list_danh_muc_game]; //lấy data sau khi xoá
+                //     console.log(list_danh_muc_game_new);
+                //     axios
+                //         .post('/api/api-xoaAllData-danhMucgame-nro', list_danh_muc_game_new)
+                //         .then((res) => {
+
+                //         })
+                //     this.list_danh_muc_game = this.list_danh_muc_game.filter((items) => {
+                //         return items.tieu_de.toLowerCase().includes(""); // xoá trên front-end
+                //     });
+
+                // },
+                search() {
+                    // var newValue = {
+                    //     'content': 'Thử Vận',
+                    // }
+                    // axios
+                    //     .post('/api/api-chuyenDoiTrangThai-danhMucGame-nro', newValue)
+                    //     .then((res) => {
+                    //         this.hienThiData();
+                    //     })
+                    this.list_danh_muc_game = this.list_clone
+                    var x = this.TT_tim_kiem.toLowerCase();
+                    this.list_tim_kiem = this.list_clone.filter((items) => {
+                        return items.tieu_de.toLowerCase().includes(x);
+                    });
+                    this.list_danh_muc_game = this.list_tim_kiem
                 },
                 chuyenDoiTrangThai(value, key) {
                     axios
@@ -358,9 +406,9 @@
                         .get('/api/api-danhMucGame-nro')
                         .then((res) => {
                             this.list_danh_muc_game = res.data;
+                            this.list_clone = [...this.list_danh_muc_game]
                         });
                 },
-
             },
         });
     </script>
