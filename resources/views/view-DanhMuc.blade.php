@@ -315,7 +315,7 @@
                 },
                 chuyenDoiTrangThai(value, key) {
                     axios
-                        .post('http://127.0.0.1:8000/api/api-chuyenDoiTrangThai-danhMucGame-nro', value)
+                        .post('/api/api-chuyenDoiTrangThai-danhMucGame-nro', value)
                         .then((res) => {
                             this.hienThiData();
                         })
@@ -323,7 +323,7 @@
                 themData() {
                     console.log(this.list);
                     axios
-                        .post('http://127.0.0.1:8000/api/api-taoData-danhMucGame-nro', this.list)
+                        .post('/api/api-taoData-danhMucGame-nro', this.list)
                         .then((res) => {
                             this.list_danh_muc_game = res.data;
                         })
@@ -331,7 +331,7 @@
                 },
                 xoaData(value) {
                     axios
-                        .post('http://127.0.0.1:8000/api/api-xoaData-danhMucGame-nro', value)
+                        .post('/api/api-xoaData-danhMucGame-nro', value)
                         .then((res) => {
                             this.list_mini_game = res.data;
                         })
@@ -343,7 +343,7 @@
                 },
                 updateData() {
                     axios
-                        .put('http://127.0.0.1:8000/api/api-updateData-danhMucGame-nro', this.updated_list)
+                        .put('/api/api-updateData-danhMucGame-nro', this.updated_list)
                         .then((res) => {
                             this.hienThiData();
                         })
@@ -355,7 +355,7 @@
                 },
                 hienThiData() {
                     axios
-                        .get('http://127.0.0.1:8000/api/api-danhMucGame-nro')
+                        .get('/api/api-danhMucGame-nro')
                         .then((res) => {
                             this.list_danh_muc_game = res.data;
                         });

@@ -266,19 +266,19 @@
             created() {
                 // Sử dụng Promise.all để gửi các yêu cầu GET đồng thời
                 axios
-                    .get('http://127.0.0.1:8000/api/api-danhMucGame-nro')
+                    .get('/api/api-danhMucGame-nro')
                     .then((res) => {
                         this.list_danh_muc_game = res.data;
                         // console.log(res.data);
                     }),
                     axios
-                    .get('http://127.0.0.1:8000/api/api-dichVuGame-nro')
+                    .get('/api/api-dichVuGame-nro')
                     .then((res) => {
                         this.list_dich_vu_game = res.data;
                         // console.log(res.data);
                     }),
                     axios
-                    .get('http://127.0.0.1:8000/api/api-miniGame-nro')
+                    .get('/api/api-miniGame-nro')
                     .then((res) => {
                         this.list_mini_game = res.data;
                         console.log(res.data);

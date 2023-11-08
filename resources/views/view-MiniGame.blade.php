@@ -76,14 +76,16 @@
                     <div class="card-header">
                         <div class="row d-flex justify-content-between align-items-center">
                             <div class="col-md-6">
-                                    <h5 class="text-danger mb-0" style="font-weight: bold">Quản lý Mini game
-                                    </h5>
+                                <h5 class="text-danger mb-0" style="font-weight: bold">Quản lý Mini game
+                                </h5>
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input type="text" class="form-control shadow-none py-2 my-2 fs-6" placeholder="Tìm kiếm theo tên!"
-                                        aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                    <span class="input-group-text py-2 my-2 fs-6 btn btn-danger" id="basic-addon2"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                    <input type="text" class="form-control shadow-none py-2 my-2 fs-6"
+                                        placeholder="Tìm kiếm theo tên!" aria-label="Recipient's username"
+                                        aria-describedby="basic-addon2">
+                                    <span class="input-group-text py-2 my-2 fs-6 btn btn-danger" id="basic-addon2"><i
+                                            class="fa-solid fa-magnifying-glass"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -108,8 +110,8 @@
                                 <template v-for="(value,key) in list_mini_game">
                                     <tr>
                                         <th class="text-center align-middle">@{{ key + 1 }}</th>
-                                        <td class="text-center align-middle"><img v-bind:src="value.hinh_anh" alt=""
-                                                width="100%" class="img-thumbnail"></td>
+                                        <td class="text-center align-middle"><img v-bind:src="value.hinh_anh"
+                                                alt="" width="100%" class="img-thumbnail"></td>
                                         <td class="text-center align-middle" style="width: 200px; height: 80px;">
                                             @{{ value.tieu_de }}
                                         </td>
@@ -314,14 +316,14 @@
             methods: {
                 chuyenDoiTrangThai(value) {
                     axios
-                        .post('http://127.0.0.1:8000/api/api-chuyenDoiTrangThaiMini-miniGame-nro', value)
+                        .post('/api/api-chuyenDoiTrangThaiMini-miniGame-nro', value)
                         .then((res) => {
                             this.hienThiData();
                         })
                 },
                 themData() {
                     axios
-                        .post('http://127.0.0.1:8000/api/api-taoData-miniGame-nro', this.list)
+                        .post('/api/api-taoData-miniGame-nro', this.list)
                         .then((res) => {
                             this.list_mini_game = res.data;
                         })
@@ -330,7 +332,7 @@
                 },
                 xoaData(value) {
                     axios
-                        .post('http://127.0.0.1:8000/api/api-xoaData-miniGame-nro', value)
+                        .post('/api/api-xoaData-miniGame-nro', value)
                         .then((res) => {
                             this.list_mini_game = res.data;
                         })
@@ -342,7 +344,7 @@
                 },
                 updateData() {
                     axios
-                        .put('http://127.0.0.1:8000/api/api-updateData-miniGame-nro', this.updated_list)
+                        .put('/api/api-updateData-miniGame-nro', this.updated_list)
                         .then((res) => {
                             this.hienThiData();
                         })
@@ -354,7 +356,7 @@
                 },
                 hienThiData() {
                     axios
-                        .get('http://127.0.0.1:8000/api/api-miniGame-nro')
+                        .get('/api/api-miniGame-nro')
                         .then((res) => {
                             this.list_mini_game = res.data;
                         });

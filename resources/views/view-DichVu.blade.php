@@ -240,21 +240,21 @@
             methods: {
                 chuyenDoiTrangThai(value) {
                     axios
-                        .post('http://127.0.0.1:8000/api/api-chuyenDoiTrangThaiDV-danhMucGame-nro', value)
+                        .post('/api/api-chuyenDoiTrangThaiDV-danhMucGame-nro', value)
                         .then((res) => {
                             this.hienThiData();
                         })
                 },
                 themMoiData() {
                     axios
-                        .post('http://127.0.0.1:8000/api/api-taoData-dichVuGame-nro', this.list)
+                        .post('/api/api-taoData-dichVuGame-nro', this.list)
                         .then((res) => {
                             this.hienThiData();
                         })
                 },
                 xoaData(value) {
                     axios
-                        .post('http://127.0.0.1:8000/api/api-xoaData-dichVuGame-nro', value)
+                        .post('/api/api-xoaData-dichVuGame-nro', value)
                         .then((res) => {
                             this.hienThiData();
                         })
@@ -266,7 +266,7 @@
                 },
                 updateData() {
                     axios
-                        .put('http://127.0.0.1:8000/api/api-updateData-dichVuGame-nro', this.list_update)
+                        .put('/api/api-updateData-dichVuGame-nro', this.list_update)
                         .then((res) => {
                             this.hienThiData();
                         })
@@ -278,7 +278,7 @@
                 },
                 hienThiData() {
                     axios
-                        .get('http://127.0.0.1:8000/api/api-dichVuGame-nro')
+                        .get('/api/api-dichVuGame-nro')
                         .then((res) => {
                             this.list_dich_vu_game = res.data;
                         })
