@@ -118,7 +118,7 @@
                                         <td class="text-center align-middle">
                                             <div style="cursor: pointer;" class="hover-btn btn-opacity"><i
                                                     data-bs-toggle="modal" data-bs-target="#modalUpdate"
-                                                    v-on:click="showData = value"
+                                                    v-on:click="updated_list = Object.assign({}, value)"
                                                     class="fa-solid fa-pen-to-square text-primary fs-4"></i></div>
                                         </td>
                                     </tr>
@@ -176,8 +176,7 @@
                                                                                 placeholder="Nhập hình ảnh"
                                                                                 aria-label="Username"
                                                                                 aria-describedby="basic-addon1"
-                                                                                v-model="showData.hinh_anh"
-                                                                                >
+                                                                                v-model="updated_list.hinh_anh">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-4">
@@ -192,8 +191,7 @@
                                                                                 placeholder="Nhập tiêu đề"
                                                                                 aria-label="Username"
                                                                                 aria-describedby="basic-addon1"
-                                                                                v-model="showData.tieu_de"
-                                                                                >
+                                                                                v-model="updated_list.tieu_de">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-4">
@@ -207,8 +205,7 @@
                                                                                 placeholder="Nhập lần quay"
                                                                                 aria-label="Username"
                                                                                 aria-describedby="basic-addon1"
-                                                                                v-model="showData.so_lan_quay"
-                                                                                >
+                                                                                v-model="updated_list.so_lan_quay">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-4">
@@ -222,8 +219,7 @@
                                                                                 placeholder="Nhập giá cũ"
                                                                                 aria-label="Username"
                                                                                 aria-describedby="basic-addon1"
-                                                                                v-model="showData.gia_cu"
-                                                                            >
+                                                                                v-model="updated_list.gia_cu">
                                                                         </div>
                                                                     </div>
 
@@ -239,13 +235,13 @@
                                                                                 placeholder="Nhập giá hiện tại"
                                                                                 aria-label="Username"
                                                                                 aria-describedby="basic-addon1"
-                                                                               v-model="showData.gia_moi"
-                                                                              >
+                                                                                v-model="updated_list.gia_moi">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-4">
                                                                         <label for=""><b>Tình trạng</b></label>
-                                                                        <select v-model="showData.tinh_trang" class="form-select form-control mt-2 mb-2"
+                                                                        <select v-model="updated_list.tinh_trang"
+                                                                            class="form-select form-control mt-2 mb-2"
                                                                             aria-label="Large select example">
                                                                             <option selected disabled>Mặc định</option>
                                                                             <option value="1">Hiển thị</option>
@@ -290,15 +286,8 @@
                 list_mini_game: [],
                 delte: {},
                 showData: '',
+                updated_list: '',
                 list: {
-                    'hinh_anh': '',
-                    'tieu_de': '',
-                    'so_lan_quay': '',
-                    'gia_cu': '',
-                    'gia_moi': '',
-                    'tinh_trang': '',
-                },
-                list_1: {
                     'hinh_anh': '',
                     'tieu_de': '',
                     'so_lan_quay': '',
@@ -319,7 +308,7 @@
                             this.list_mini_game = res.data;
                         })
                     // this.list = {},
-                        this.hienThiData();
+                    this.hienThiData();
                 },
                 xoaData(value) {
                     axios
@@ -335,7 +324,7 @@
                 },
                 updateData() {
                     axios
-                        .put('http://127.0.0.1:8000/api/api-updateData-miniGame-nro', this.showData)
+                        .put('http://127.0.0.1:8000/api/api-updateData-miniGame-nro', this.updated_list)
                         .then((res) => {
                             this.hienThiData();
                         })

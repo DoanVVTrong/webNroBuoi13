@@ -35,12 +35,6 @@
                                     </swiper-slide>
                                     <swiper-slide>
                                         <a href="">
-                                            <img style="object-fit: cover" src="/assets/slide2.gif" class="d-block w-100 carousel-image"
-                                                alt="...">
-                                        </a>
-                                    </swiper-slide>
-                                    <swiper-slide>
-                                        <a href="">
                                             <img style="object-fit: cover" src="/assets/slide3.png" class="d-block w-100 carousel-image"
                                                 alt="...">
                                         </a>
@@ -97,7 +91,7 @@
                         <h2 class="text-center dichvu pt-3 pb-2" style="color:white; font-weight:bold;">DANH MỤC GAME</h2>
                         <div class="row py-4">
                             {{-- start --}}
-                            <template v-for="(value , key) in list_danh_muc_game">
+                            <template v-for="(value , key) in list_danh_muc_game" v-if="value.tinh_trang == 1">
                                 <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6  pb-4 d-flex">
                                     <div class="card flex-fill"
                                         style="width: 100%; background-color: rgba(18, 17, 15, 0.18); border: 1px solid white;">
